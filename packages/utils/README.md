@@ -71,6 +71,7 @@ const value = remapUnit(0.2, 0.8, 0.5); // maps 0.5 to 0.5 in range [0.2, 0.8]
 |----------|-------------|---------|
 | `clamp(rangeStart, rangeEnd, value)` | Constrains a value between min/max bounds | `clamp(0, 1, 1.5) // returns 1` |
 | `clampToUnit(value)` | Constrains a value to [0,1] range | `clampToUnit(1.5) // returns 1` |
+| `getRandomFloat(min, max, precision?)` | Generates a random float within a range | `getRandomFloat(1, 10, 2) // returns e.g. 5.42` |
 | `normalize(min, max, value)` | Maps value from any range to [0,1] | `normalize(0, 100, 50) // returns 0.5` |
 | `normalizeWithDeadZones(threshold_low, threshold_high, value)` | Maps value to [0,1] with threshold dead zones | `normalizeWithDeadZones(0.3, 0.7, 0.5) // returns 0.5` |
 | `remap(fromMin, fromMax, toMin, toMax, value)` | Maps value from one range to another | `remap(0, 1, 0, 100, 0.5) // returns 50` |
