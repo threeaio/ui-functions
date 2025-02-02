@@ -158,6 +158,34 @@ All easing functions take a progress value between 0 and 1 and return an eased v
 | `easeOutExpo(x)` | Exponential ease out | Sharp deceleration |
 | `easeInOutExpo(x)` | Exponential ease in/out | Sharp acceleration/deceleration |
 
+#### Waveform Functions
+All waveform functions take an input value (typically time) and return a value between 0 and 1. They are useful for creating periodic animations and oscillations.
+
+| Function | Description | Parameters |
+|----------|-------------|------------|
+| `sine(x)` | Smooth sinusoidal oscillation | - |
+| `triangle(x)` | Linear triangular wave pattern | - |
+| `sawtooth(x)` | Linear increasing pattern that resets | - |
+| `square(x, dutyCycle?)` | Alternates between 0 and 1 | `dutyCycle`: Percentage of "on" time (0-1, default: 0.5) |
+| `bounce(x, bounces?)` | Bouncing ball effect | `bounces`: Number of bounces (default: 3) |
+| `pulse(x, width?)` | Smooth pulse wave | `width`: Width of pulse (0-1, default: 0.5) |
+| `elastic(x, amplitude?, frequency?)` | Spring-like oscillation | `amplitude`: Bounce height (default: 1)`frequency`: Bounce frequency (default: 3) |
+| `noise(x, seed?)` | Pseudo-random variation | `seed`: Random seed value (default: 1) |
+| `stepped(x, steps?)` | Quantized step pattern | `steps`: Number of discrete steps (default: 4) |
+| `circular(x)` | Circular easing pattern | - |
+| `exponential(x, base?)` | Exponential growth pattern | `base`: Growth rate (default: 2) |
+
+```typescript
+// Example usage of waveforms
+import { sine, bounce } from '@threeaio/utils/animation/waveforms';
+
+// Smooth oscillation
+const value1 = sine(time); // Returns value between 0 and 1
+
+// Bouncing effect
+const value2 = bounce(time, 5); // 5 bounces
+```
+
 ## Contributing
 
 Issues and pull requests are welcome at [https://github.com/threeaio/ui-functions](https://github.com/threeaio/ui-functions).
