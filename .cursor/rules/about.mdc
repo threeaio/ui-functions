@@ -5,4 +5,10 @@ globs:
 # About this project
 
 - This is a project to bundle frequently used functions in a monorepo with lerna and pnpm.
-- The libs in /packages should be published via npm
+- The libs in /packages will be published via lerna/npm
+
+## Current Packages
+- packages/utils => Util functions
+- here there is:
+-- src/math __tests__/math for math related functions
+-- src/geom __tests__/geom for geometry related functions

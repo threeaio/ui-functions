@@ -76,6 +76,16 @@ mapToNewUnitRange(0.2, 0.8, 0.2); // returns 0
 mapToNewUnitRange(0.2, 0.8, 0.8); // returns 1
 ```
 
+#### smoothStep
+Performs smooth interpolation between 0 and 1 using a cubic Hermite curve.
+```typescript
+import { smoothStep } from '@threeaio/utils';
+
+smoothStep(0);   // returns 0
+smoothStep(0.5); // returns 0.5
+smoothStep(1);   // returns 1
+```
+
 ## API Reference
 
 ### Math
@@ -110,6 +120,11 @@ Maps a value from a specified range (between 0 and 1) to a normalized 0-1 range.
 - `max`: Maximum boundary of the range (must be between 0 and 1)
 - `value`: The input value to normalize within the new range
 Throws RangeError if min/max are not between 0 and 1 or if range is zero.
+
+#### `smoothStep(x: number): number`
+Performs smooth interpolation using a cubic Hermite curve (3x² - 2x³).
+- `x`: Input value (must be between 0 and 1)
+Throws Error if x is not between 0 and 1.
 
 ## License
 
