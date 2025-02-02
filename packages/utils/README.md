@@ -114,18 +114,18 @@ const eased = easeInOutQuad(progress); // Smooth acceleration and deceleration
 #### Point & Line Operations
 | Function | Description | Example |
 |----------|-------------|---------|
-| `createSimple2D(x, y)` | Creates a 2D point with tuple representation | `createSimple2D(1, 2) // returns [1, 2]` |
-| `createSimpleLine(start, end)` | Creates a line from two points | `createSimpleLine({x:0,y:0}, {x:1,y:1}) // returns { start: {x:0,y:0}, end: {x:1,y:1} }` |
-| `lerpPoints(start, end, t)` | Linearly interpolates between two points | `lerpPoints({x:0,y:0}, {x:10,y:10}, 0.5) // returns {x:5,y:5}` |
+| `createSimple2D(x, y)` | Creates a 2D point with tuple representation | `createSimple2D(1, 2) // returns { x: 1, y: 2, tuple: [1, 2] }` |
+| `createSimpleLine(start, end)` | Creates a line from two points | `createSimpleLine({x:0,y:0}, {x:1,y:1}) // returns [Point2D, Point2D]` |
+| `lerpPoints(start, end, t)` | Linearly interpolates between two points | `lerpPoints({x:0,y:0}, {x:10,y:10}, 0.5) // returns { x:5, y:5, tuple: [5, 5] }` |
 | `linesIntersect(line1, line2)` | Checks if two line segments intersect | `linesIntersect(line1, line2) // returns boolean` |
-| `generateLinePoints(line, count)` | Generates evenly spaced points along a line | `generateLinePoints(line, 2) // returns [{x:3,y:3}, {x:6,y:6}]` |
+| `generateLinePoints(line, count)` | Generates evenly spaced points along a line | `generateLinePoints(line, 2) // returns Array<{ x: number, y: number, tuple: [number, number] }>` |
 
 #### Circle & Ellipse Operations
 | Function | Description | Example |
 |----------|-------------|---------|
-| `getPointOnEllipse(angle, radiusX, radiusY?)` | Gets point on circle/ellipse at angle | `getPointOnEllipse(45, 10) // returns {x:7.07,y:7.07}` |
-| `calculateArcLength(radius, angle)` | Computes arc length for given angle | `calculateArcLength(10, 90) // returns 15.71` |
-| `getSliceLengthOnCircle(r, height)` | Calculates chord length at given height | `getSliceLengthOnCircle(10, 5) // returns 8.66` |
+| `getPointOnEllipse(angle, radiusX, radiusY?)` | Gets point on circle/ellipse at angle | `getPointOnEllipse(45, 10) // returns { x: number, y: number }` |
+| `calculateArcLength(radius, angle)` | Computes arc length for given angle | `calculateArcLength(10, 90) // returns number (≈15.7079632...)` |
+| `getSliceLengthOnCircle(r, height)` | Calculates chord length at given height | `getSliceLengthOnCircle(10, 5) // returns number (≈8.6602540...)` |
 
 ### Structure Functions
 
