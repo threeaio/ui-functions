@@ -1,5 +1,7 @@
 import { Simple2D } from "../types";
 
+const PI = Math.PI;
+
 /**
  * Calculates the length of a horizontal slice (chord) on a circle at a given distance from the top.
  * This is useful for calculating widths at different heights of a circle, like when drawing
@@ -48,4 +50,36 @@ export function getPointOnEllipse(
   y = Math.abs(y) < EPSILON ? 0 : y;
   
   return { x, y };
-} 
+}
+
+/**
+ * Calculates arc length for a given angle on a circle.
+ * @param radius Radius of the circle.
+ * @param angle Angle in degrees.
+ * @returns The arc length.
+ * 
+ * @example
+ * calculateArcLength(5, 90)  // returns ~7.854 (quarter circle)
+ * calculateArcLength(5, 360) // returns ~31.416 (full circle)
+ */
+export const calculateArcLength = (radius: number, angle: number): number => {
+  return 2 * Math.PI * radius * (angle / 360);
+};
+
+/**
+ * Gets the angle in degrees from arc length.
+ * @param arcLength Length of the arc.
+ * @param radius Radius of the circle.
+ * @returns The angle in degrees.
+ * 
+ * @example
+ * getAngleFromArcLengthInDegrees(15.708, 5) // returns 180 (half circle)
+ * getAngleFromArcLengthInDegrees(31.416, 5) // returns 360 (full circle)
+ */
+export const getAngleFromArcLengthInDegrees = (
+  arcLength: number,
+  radius: number,
+): number => {
+  const angleInRadians = arcLength / radius;
+  return angleInRadians * (180 / PI);
+}; 

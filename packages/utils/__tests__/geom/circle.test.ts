@@ -1,4 +1,4 @@
-import { getSliceLengthOnCircle, getPointOnEllipse } from '../../src/geom';
+import { getSliceLengthOnCircle, getPointOnEllipse, calculateArcLength, getAngleFromArcLengthInDegrees } from '../../src/geom';
 
 describe('circle geometry', () => {
   describe('getSliceLengthOnCircle', () => {
@@ -61,6 +61,57 @@ describe('circle geometry', () => {
       // At 45 degrees, x and y should be approximately 0.707 (1/√2)
       expect(result.x).toBeCloseTo(0.707, 3);
       expect(result.y).toBeCloseTo(0.707, 3);
+    });
+  });
+
+  describe('calculateArcLength', () => {
+    it('should calculate correct arc length for various angles', () => {
+      const radius = 5;
+      
+      // Full circle
+      expect(calculateArcLength(radius, 360)).toBeCloseTo(2 * Math.PI * radius);
+      
+      // Half circle
+      expect(calculateArcLength(radius, 180)).toBeCloseTo(Math.PI * radius);
+      
+      // Quarter circle
+      expect(calculateArcLength(radius, 90)).toBeCloseTo(Math.PI * radius / 2);
+    });
+
+    it('should handle zero angle', () => {
+      expect(calculateArcLength(5, 0)).toBe(0);
+    });
+
+    it('should handle angles greater than 360', () => {
+      const radius = 5;
+      expect(calculateArcLength(radius, 720)).toBeCloseTo(4 * Math.PI * radius);
+    });
+  });
+
+  describe('getAngleFromArcLengthInDegrees', () => {
+    const radius = 5;
+    
+    test('should correctly calculate common angles', () => {
+      // Quarter circle
+      expect(getAngleFromArcLengthInDegrees(calculateArcLength(radius, 90), radius))
+        .toBeCloseTo(90);
+      
+      // Half circle
+      expect(getAngleFromArcLengthInDegrees(calculateArcLength(radius, 180), radius))
+        .toBeCloseTo(180);
+      
+      // Full circle
+      expect(getAngleFromArcLengthInDegrees(calculateArcLength(radius, 360), radius))
+        .toBeCloseTo(360);
+    });
+
+    test('should handle edge cases', () => {
+      // Zero arc length
+      expect(getAngleFromArcLengthInDegrees(0, radius)).toBe(0);
+      
+      // Small angle
+      expect(getAngleFromArcLengthInDegrees(calculateArcLength(radius, 1), radius))
+        .toBeCloseTo(1);
     });
   });
 }); 

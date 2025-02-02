@@ -6,3 +6,4 @@ export * from './clamp-to-unit';
 export * from './map-to-new-unit-range';
 export * from './smooth-step';
 export * from './normalized-gaussian';
+export * from './angle-conversion';
