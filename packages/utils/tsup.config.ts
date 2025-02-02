@@ -5,6 +5,7 @@ export default defineConfig({
     'math/index': 'src/math/index.ts',
     'geom/index': 'src/geom/index.ts',
     'structures/index': 'src/structures/index.ts',
+    'animation/index': 'src/animation/index.ts',
     'types/index': 'src/types/index.ts',
   },
   format: ['esm', 'cjs'],
