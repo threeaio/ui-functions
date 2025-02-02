@@ -1,6 +1,6 @@
 {
   "name": "@threeaio/utils",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "> TODO: description",
   "author": "Nikolaj Sokolowski",
   "homepage": "https://github.com/threeaio/ui-functions#readme",
@@ -30,9 +30,6 @@
   "bugs": {
     "url": "https://github.com/threeaio/ui-functions/issues"
   },
-  "devDependencies": {
-
-  },
   "gitHead": "5465e59abc12e9b579d6b8ad344f82a18420bf25",
   "publishConfig": {
     "access": "public"
@@ -51,7 +48,9 @@
   },
   "typesVersions": {
     "*": {
-      "math": ["./dist/math/index.d.ts"]
+      "math": [
+        "./dist/math/index.d.ts"
+      ]
     }
   }
 }
