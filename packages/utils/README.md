@@ -58,8 +58,6 @@ Try out our interactive visualizations to better understand how different functi
 
 These interactive examples demonstrate the behavior of our utility functions in real-time. You can adjust parameters like speed to see how they affect the output.
 
-> Note: Examples require a modern browser with ES modules support.
-
 ## Usage Examples
 
 ### Working with Lines

@@ -26,7 +26,7 @@
     "build": "tsup",
     "clean": "rimraf dist",
     "prepublishOnly": "pnpm run clean && pnpm run build",
-    "build:examples": "pnpm run build && mkdir -p examples && cp src/examples/*.html examples/ && cp src/examples/*.css examples/ && cp -r dist examples/",
+    "build:examples": "pnpm run build && mkdir -p examples && cp src/examples/*.html examples/ && cp src/examples/*.css examples/ && mkdir -p examples/js && cp -r dist/* examples/js/",
     "serve:examples": "npx http-server examples -o -c-1"
   },
   "bugs": {
