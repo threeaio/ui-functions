@@ -44,12 +44,28 @@
       "types": "./dist/math/index.d.ts",
       "import": "./dist/math/index.js",
       "require": "./dist/math/index.cjs"
+    },
+    "./geom": {
+      "types": "./dist/geom/index.d.ts",
+      "import": "./dist/geom/index.js",
+      "require": "./dist/geom/index.cjs"
+    },
+    "./types": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/types/index.js",
+      "require": "./dist/types/index.cjs"
     }
   },
   "typesVersions": {
     "*": {
       "math": [
         "./dist/math/index.d.ts"
+      ],
+      "geom": [
+        "./dist/geom/index.d.ts"
+      ],
+      "types": [
+        "./dist/types/index.d.ts"
       ]
     }
   }

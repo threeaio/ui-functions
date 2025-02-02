@@ -17,7 +17,14 @@ pnpm add @threeaio/utils
 The library provides utility functions in the following categories:
 
 - **Math**: Common mathematical operations like interpolation, normalization, and clamping
+  ```typescript
+  import { clamp } from '@threeaio/utils/math'
+  ```
+
 - **Geometry**: Geometric calculations for circles, ellipses, and other shapes
+  ```typescript
+  import { getPointOnEllipse } from '@threeaio/utils/geom'
+  ```
 
 ## Function Reference
 
