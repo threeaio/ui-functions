@@ -4,5 +4,6 @@
       "outDir": "./dist",
       "rootDir": "./src"
     },
-    "include": ["src/**/*", "__tests__/math/lerp.test.ts", "__tests__/math/clamp-to-unit.test.ts"]
+    "include": ["src/**/*", "__tests__/**/*"],
+    "exclude": ["node_modules", "dist"]
   }
