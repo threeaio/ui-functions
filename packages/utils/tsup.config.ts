@@ -7,8 +7,9 @@ export default defineConfig({
     'examples/waveforms-bundle': 'src/animation/waveforms.ts',
     'examples/easing-bundle': 'src/animation/easing.ts'
   },
-  format: ['esm'],
+  format: ['cjs', 'esm'],
   dts: true,
   clean: true,
-  outDir: 'dist'
+  outDir: 'dist',
+  globalName: 'utils'
 }); 
