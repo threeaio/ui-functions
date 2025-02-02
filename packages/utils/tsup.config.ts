@@ -2,14 +2,15 @@ import { defineConfig } from 'tsup';
 
 export default defineConfig({
   entry: {
-    'index': 'src/index.ts',
+    'math/index': 'src/math/index.ts',
+    'geom/index': 'src/geom/index.ts',
+    'structures/index': 'src/structures/index.ts',
     'animation/index': 'src/animation/index.ts',
-    'examples/waveforms-bundle': 'src/animation/waveforms.ts',
-    'examples/easing-bundle': 'src/animation/easing.ts'
+    'types/index': 'src/types/index.ts',
   },
-  format: ['cjs', 'esm'],
+  format: ['esm', 'cjs'],
   dts: true,
   clean: true,
-  outDir: 'dist',
-  globalName: 'utils'
+  splitting: false,
+  treeshake: true,
 }); 
