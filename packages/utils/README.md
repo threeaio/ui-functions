@@ -86,6 +86,16 @@ smoothStep(0.5); // returns 0.5
 smoothStep(1);   // returns 1
 ```
 
+#### normalizedGaussian
+Calculates a normalized gaussian (bell curve) value for smooth falloff effects.
+```typescript
+import { normalizedGaussian } from '@threeaio/utils';
+
+normalizedGaussian(0, 1);   // returns 1.0 (maximum effect)
+normalizedGaussian(0.5, 1); // returns ~0.135 (smooth falloff)
+normalizedGaussian(1, 1);   // returns ~0.0 (minimal effect)
+```
+
 ## API Reference
 
 ### Math
@@ -125,6 +135,12 @@ Throws RangeError if min/max are not between 0 and 1 or if range is zero.
 Performs smooth interpolation using a cubic Hermite curve (3x² - 2x³).
 - `x`: Input value (must be between 0 and 1)
 Throws Error if x is not between 0 and 1.
+
+#### `normalizedGaussian(x: number, strength: number): number`
+Calculates a normalized gaussian (bell curve) value for smooth falloff effects.
+- `x`: Input value in range [0,1]
+- `strength`: Maximum effect at x=0
+Returns a value between 0 and strength, following gaussian decay.
 
 ## License
 
