@@ -35,7 +35,7 @@
     "jest": "^29.7.0",
     "ts-jest": "^29.1.2"
   },
-  "gitHead": "532c477c8876b9f9a9c9c124e9802a85b88ed8da",
+  "gitHead": "5465e59abc12e9b579d6b8ad344f82a18420bf25",
   "publishConfig": {
     "access": "public"
   }
