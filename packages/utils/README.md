@@ -63,6 +63,14 @@ The library provides utility functions in the following categories:
 | `getAngleFromArcLengthInDegrees` | Converts arc length to angle |
 | `getPointOnEllipse` | Gets point on circle/ellipse at angle |
 
+#### Point & Line Operations
+| Function | Description |
+|----------|-------------|
+| `createSimple2D` | Creates a 2D point with tuple representation |
+| `createSimpleLine` | Creates a line from two points |
+| `linesIntersect` | Checks if two line segments intersect or overlap |
+| `generateLinePoints` | Generates evenly spaced points along a line |
+
 ## API Reference
 
 ### Math Functions
@@ -88,6 +96,10 @@ getSliceLengthOnCircle(r: number, height: number): number
 getPointOnEllipse(angle: number, radiusX: number, radiusY?: number): Simple2D
 calculateArcLength(radius: number, angle: number): number
 getAngleFromArcLengthInDegrees(arcLength: number, radius: number): number
+createSimple2D(x: number, y: number): Simple2DAndTuple
+createSimpleLine(start: Simple2D, end: Simple2D): Simple2DLine
+linesIntersect(line1: Simple2DLine, line2: Simple2DLine): boolean
+generateLinePoints(line: Simple2DLine, count: number): Simple2DAndTuple[]
 ```
 
 ## License
