@@ -19,7 +19,7 @@ pnpm add @threeaio/utils
 #### clamp
 Clamps a value between a minimum and maximum range.
 ```typescript
-import { clamp } from '@threeaio/utils';
+import { clamp } from '@threeaio/utils/math';
 
 clamp(0, 100, 50);  // returns 50
 clamp(0, 100, 150); // returns 100
