@@ -1,3 +1,5 @@
+import { Simple2D } from "../types";
+
 /**
  * Calculates the length of a horizontal slice (chord) on a circle at a given distance from the top.
  * This is useful for calculating widths at different heights of a circle, like when drawing
@@ -21,4 +23,21 @@
  */
 export function getSliceLengthOnCircle(r: number, height: number): number {
   return 2 * Math.sqrt(2 * r * height - height * height);
+}
+
+/**
+ * Gets a point on an ellipse at a given angle.
+ * @param angle Angle in radians.
+ * @param radiusX X-radius of the ellipse.
+ * @param radiusY Y-radius of the ellipse (defaults to X-radius if undefined).
+ * @returns The point on the ellipse as a Simple2D object.
+ */
+export function getPointOnEllipse(
+  angle: number,
+  radiusX: number,
+  radiusY?: number,
+): Simple2D {
+  const x = radiusX * Math.cos(angle);
+  const y = (typeof radiusY !== "undefined" ? radiusY : radiusX) * Math.sin(angle);
+  return { x, y };
 } 

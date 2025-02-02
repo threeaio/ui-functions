@@ -107,6 +107,15 @@ Contains geometric calculations and utilities.
 #### Circle Functions
 - `getSliceLengthOnCircle(r: number, height: number): number` - Calculates the length of a horizontal slice (chord) on a circle at a given height from the edge. Useful for calculating circle widths at different heights.
 
+- `getPointOnEllipse(angle: number, radiusX: number, radiusY?: number): Simple2D` - Gets a point on an ellipse at a given angle. If radiusY is omitted, calculates point on a circle using radiusX.
+  ```typescript
+  // Get point on circle
+  getPointOnEllipse(Math.PI/2, 5);    // { x: 0, y: 5 }
+  
+  // Get point on ellipse
+  getPointOnEllipse(0, 4, 2);         // { x: 4, y: 0 }
+  ```
+
 ## API Reference
 
 ### Math
