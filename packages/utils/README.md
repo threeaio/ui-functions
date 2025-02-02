@@ -5,6 +5,7 @@ A collection of utility functions for common programming tasks.
 ## Table of Contents
 - [Installation](#installation)
 - [Overview](#overview)
+- [Interactive Examples](#interactive-examples)
 - [Usage Examples](#usage-examples)
 - [API Reference](#api-reference)
   - [Math Functions](#math-functions)
@@ -47,6 +48,15 @@ The library provides utility functions in the following categories:
   ```typescript
   import { easeInOutQuad } from '@threeaio/utils/animation'
   ```
+
+## Interactive Examples
+
+Try out our interactive visualizations to better understand how different functions work:
+
+- [Waveform Visualizations](https://htmlpreview.github.io/?https://github.com/threeaio/ui-functions/blob/main/packages/utils/examples/waveform-example.html) - Explore different waveform patterns like sine, triangle, sawtooth, and more
+- [Easing Functions](https://htmlpreview.github.io/?https://github.com/threeaio/ui-functions/blob/main/packages/utils/examples/easing-example.html) - Visualize various easing functions for smooth animations
+
+These interactive examples demonstrate the behavior of our utility functions in real-time. You can adjust parameters like speed to see how they affect the output.
 
 ## Usage Examples
 
