@@ -10,6 +10,7 @@ A collection of utility functions for common programming tasks.
   - [Math Functions](#math-functions)
   - [Geometry Functions](#geometry-functions)
   - [Structure Functions](#structure-functions)
+  - [Animation Functions](#animation-functions)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -42,6 +43,11 @@ The library provides utility functions in the following categories:
   import { moveInArray, getObjectKeys } from '@threeaio/utils/structures'
   ```
 
+- **Animation**: Easing functions for smooth animations
+  ```typescript
+  import { easeInOutQuad } from '@threeaio/utils/animation'
+  ```
+
 ## Usage Examples
 
 ### Working with Lines
@@ -66,6 +72,13 @@ const remapped = remap(0, 1, 0, 100, 0.5); // returns 50
 
 // Remap within unit range
 const value = remapUnit(0.2, 0.8, 0.5); // maps 0.5 to 0.5 in range [0.2, 0.8]
+```
+
+### Animation Easing
+```typescript
+// Use easing functions for smooth animations
+const progress = 0.5;
+const eased = easeInOutQuad(progress); // Smooth acceleration and deceleration
 ```
 
 ## API Reference
@@ -103,6 +116,7 @@ const value = remapUnit(0.2, 0.8, 0.5); // maps 0.5 to 0.5 in range [0.2, 0.8]
 |----------|-------------|---------|
 | `createSimple2D(x, y)` | Creates a 2D point with tuple representation | `createSimple2D(1, 2)` |
 | `createSimpleLine(start, end)` | Creates a line from two points | `createSimpleLine({x:0,y:0}, {x:1,y:1})` |
+| `lerpPoints(start, end, t)` | Linearly interpolates between two points | `lerpPoints({x:0,y:0}, {x:10,y:10}, 0.5)` |
 | `linesIntersect(line1, line2)` | Checks if two line segments intersect | `linesIntersect(line1, line2)` |
 | `generateLinePoints(line, count)` | Generates evenly spaced points along a line | `generateLinePoints(line, 2)` |
 
@@ -126,6 +140,23 @@ const value = remapUnit(0.2, 0.8, 0.5); // maps 0.5 to 0.5 in range [0.2, 0.8]
 | Function | Description | Example |
 |----------|-------------|---------|
 | `getObjectKeys(obj)` | Gets typed keys of an object | `getObjectKeys({a:1, b:2}) // ['a','b']` |
+
+### Animation Functions
+
+#### Easing Functions
+All easing functions take a progress value between 0 and 1 and return an eased value between 0 and 1.
+
+| Function | Description | Use Case |
+|----------|-------------|----------|
+| `easeInQuad(x)` | Quadratic ease in | Gradual acceleration |
+| `easeOutQuad(x)` | Quadratic ease out | Gradual deceleration |
+| `easeInOutQuad(x)` | Quadratic ease in/out | Smooth acceleration and deceleration |
+| `easeInCubic(x)` | Cubic ease in | Stronger acceleration |
+| `easeOutCubic(x)` | Cubic ease out | Stronger deceleration |
+| `easeInOutCubic(x)` | Cubic ease in/out | Stronger smooth acceleration/deceleration |
+| `easeInExpo(x)` | Exponential ease in | Sharp acceleration |
+| `easeOutExpo(x)` | Exponential ease out | Sharp deceleration |
+| `easeInOutExpo(x)` | Exponential ease in/out | Sharp acceleration/deceleration |
 
 ## Contributing
 
