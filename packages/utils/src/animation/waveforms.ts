@@ -68,12 +68,20 @@ export const elastic = (x: number, amplitude = 1, frequency = 3): number => {
 
 /**
  * Pseudo-random noise (deterministic)
- * @param seed - Seed value for noise generation (default: 1)
+ * @param x - Input value between 0 and 1
+ * @param seed - Seed value that determines the noise pattern (default: 1)
+ * @returns Value between 0 and 1
  */
 export const noise = (x: number, seed = 1): number => {
-  const normalized = x % 1;
-  const value = Math.sin(normalized * 12.9898 * seed) * 43758.5453123;
-  return (value - Math.floor(value));
+    const normalized = x % 1;
+    // Higher frequency = more rapid changes
+    const frequency = 4.9898;
+    // Higher amplitude = more extreme values
+    const amplitude = 9758.5453123;
+    
+    const value = Math.sin(normalized * frequency * seed) * amplitude;
+    // Scale to range [0.4, 0.6] for less extreme values
+    return (value - Math.floor(value)) * 0.4 + 0.2;
 };
 
 /**

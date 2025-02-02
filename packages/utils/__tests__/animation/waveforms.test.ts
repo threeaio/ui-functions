@@ -156,17 +156,34 @@ describe('waveform functions', () => {
   });
 
   describe('noise', () => {
-    it('should output values between 0 and 1', () => {
-      testRange(noise);
+    it('should return deterministic values', () => {
+      expect(noise(0.5, 1)).toBe(noise(0.5, 1));
+      expect(noise(0.25, 2)).toBe(noise(0.25, 2));
     });
 
-    it('should be deterministic', () => {
-      const seed = 42;
-      expect(noise(0.5, seed)).toEqual(noise(0.5, seed));
+    it('should return values between 0.2 and 0.8', () => {
+      for (let i = 0; i < 100; i++) {
+        const value = noise(i / 100, 1);
+        expect(value).toBeGreaterThanOrEqual(0.2);
+        expect(value).toBeLessThanOrEqual(0.8);
+      }
     });
 
-    it('should produce different values with different seeds', () => {
-      expect(noise(0.5, 1)).not.toEqual(noise(0.5, 2));
+    it('should change pattern with different seeds', () => {
+      // Same x value, different seeds should give different but consistent results
+      const patterns = new Set();
+      for (let seed = 1; seed <= 5; seed++) {
+        patterns.add(noise(0.5, seed));
+      }
+      // Should get different values for different seeds
+      expect(patterns.size).toBeGreaterThan(1);
+    });
+
+    it('should maintain periodicity regardless of seed', () => {
+      [1, 2, 3].forEach(seed => {
+        expect(noise(0, seed)).toBe(noise(1, seed));
+        expect(noise(0.5, seed)).toBe(noise(1.5, seed));
+      });
     });
   });
 

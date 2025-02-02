@@ -25,7 +25,9 @@
     "test": "jest",
     "build": "tsup",
     "clean": "rimraf dist",
-    "prepublishOnly": "pnpm run clean && pnpm run build"
+    "prepublishOnly": "pnpm run clean && pnpm run build",
+    "build:examples": "pnpm run build && mkdir -p examples && cp src/examples/*.html examples/ && cp src/examples/*.css examples/ && cp -r dist examples/",
+    "serve:examples": "npx http-server examples -o -c-1"
   },
   "bugs": {
     "url": "https://github.com/threeaio/ui-functions/issues"
@@ -68,5 +70,8 @@
         "./dist/types/index.d.ts"
       ]
     }
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
   }
 }
