@@ -56,6 +56,26 @@ normalize(0, 100, 0);   // returns 0
 normalize(0, 100, 100); // returns 1
 ```
 
+#### reMap
+Remaps a value from one range to another.
+```typescript
+import { reMap } from '@threeaio/utils';
+
+reMap(0, 100, 0, 1, 50);  // returns 0.5
+reMap(0, 100, -1, 1, 50); // returns 0
+reMap(0, 10, 0, 100, 5);  // returns 50
+```
+
+#### mapToNewUnitRange
+Maps a normalized value within a specified range [min, max] to a constrained value between 0 and 1.
+```typescript
+import { mapToNewUnitRange } from '@threeaio/utils';
+
+mapToNewUnitRange(0.2, 0.8, 0.5); // returns 0.5
+mapToNewUnitRange(0.2, 0.8, 0.2); // returns 0
+mapToNewUnitRange(0.2, 0.8, 0.8); // returns 1
+```
+
 ## API Reference
 
 ### Math
@@ -75,6 +95,21 @@ Linearly interpolates between two values.
 #### `normalize(min: number, max: number, value: number): number`
 Normalizes a value between a given range.
 Returns 0.5 if min equals max to avoid division by zero.
+
+#### `reMap(fromMin: number, fromMax: number, toMin: number, toMax: number, value: number): number`
+Remaps a value from one range to another.
+- `fromMin`: Start of the input range
+- `fromMax`: End of the input range
+- `toMin`: Start of the target range
+- `toMax`: End of the target range
+- `value`: The value to remap
+
+#### `mapToNewUnitRange(min: number, max: number, value: number): number`
+Maps a value from a specified range (between 0 and 1) to a normalized 0-1 range.
+- `min`: Minimum boundary of the range (must be between 0 and 1)
+- `max`: Maximum boundary of the range (must be between 0 and 1)
+- `value`: The input value to normalize within the new range
+Throws RangeError if min/max are not between 0 and 1 or if range is zero.
 
 ## License
 

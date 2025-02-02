@@ -1,0 +1,5 @@
+---
+description: Update Readme
+globs: 
+---
+-- Check after each function creation if the [README.md](mdc:packages/utils/README.md) for a library is still up to date and update if needed
