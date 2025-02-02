@@ -36,6 +36,7 @@ The library provides utility functions in the following categories:
 | `clamp` | Constrains a value between min/max bounds |
 | `clampToUnit` | Constrains a value to [0,1] range |
 | `normalize` | Maps value from a range to [0,1] |
+| `normalizeWithDeadZones` | Maps value to [0,1] with threshold dead zones |
 | `reMap` | Maps value from one range to another |
 
 #### Interpolation
@@ -77,6 +78,7 @@ smoothStep(x: number): number
 normalizedGaussian(x: number, strength: number): number
 toDegrees(radians: number): number
 toRadians(degrees: number): number
+normalizeWithDeadZones(threshold_low: number, threshold_high: number, value: number): number
 ```
 
 ### Geometry Functions
