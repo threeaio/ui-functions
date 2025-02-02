@@ -26,10 +26,9 @@ describe('circle geometry', () => {
       expect(getPointOnEllipse(0, radius)).toEqual({ x: 5, y: 0 });
       
       // At π/2 radians (top)
-      expect(getPointOnEllipse(Math.PI / 2, radius)).toEqual({ 
-        x: 0, 
-        y: 5 
-      });
+      const topPoint = getPointOnEllipse(Math.PI / 2, radius);
+      expect(topPoint.x).toBeCloseTo(0, 10);
+      expect(topPoint.y).toBeCloseTo(5, 10);
       
       // At π radians (left)
       expect(getPointOnEllipse(Math.PI, radius)).toEqual({ 
@@ -49,10 +48,9 @@ describe('circle geometry', () => {
       });
       
       // At π/2 radians (top)
-      expect(getPointOnEllipse(Math.PI / 2, radiusX, radiusY)).toEqual({ 
-        x: 0, 
-        y: 2 
-      });
+      const topPoint = getPointOnEllipse(Math.PI / 2, radiusX, radiusY);
+      expect(topPoint.x).toBeCloseTo(0, 10);
+      expect(topPoint.y).toBeCloseTo(2, 10);
     });
 
     it('should handle floating point angles', () => {

@@ -37,7 +37,15 @@ export function getPointOnEllipse(
   radiusX: number,
   radiusY?: number,
 ): Simple2D {
-  const x = radiusX * Math.cos(angle);
-  const y = (typeof radiusY !== "undefined" ? radiusY : radiusX) * Math.sin(angle);
+  const EPSILON = 1e-10; // Threshold for considering a value as zero
+  const effectiveRadiusY = typeof radiusY !== "undefined" ? radiusY : radiusX;
+  
+  let x = radiusX * Math.cos(angle);
+  let y = effectiveRadiusY * Math.sin(angle);
+  
+  // Clean up near-zero values
+  x = Math.abs(x) < EPSILON ? 0 : x;
+  y = Math.abs(y) < EPSILON ? 0 : y;
+  
   return { x, y };
 } 
