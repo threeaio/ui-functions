@@ -9,6 +9,7 @@ A collection of utility functions for common programming tasks.
 - [API Reference](#api-reference)
   - [Math Functions](#math-functions)
   - [Geometry Functions](#geometry-functions)
+  - [Structure Functions](#structure-functions)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -34,6 +35,11 @@ The library provides utility functions in the following categories:
 - **Geometry**: Geometric calculations for points, lines, circles, and ellipses
   ```typescript
   import { getPointOnEllipse } from '@threeaio/utils/geom'
+  ```
+
+- **Structures**: Array and object manipulation utilities
+  ```typescript
+  import { moveInArray, getObjectKeys } from '@threeaio/utils/structures'
   ```
 
 ## Usage Examples
@@ -106,6 +112,20 @@ const value = remapUnit(0.2, 0.8, 0.5); // maps 0.5 to 0.5 in range [0.2, 0.8]
 | `getPointOnEllipse(angle, radiusX, radiusY?)` | Gets point on circle/ellipse at angle | `getPointOnEllipse(45, 10)` |
 | `calculateArcLength(radius, angle)` | Computes arc length for given angle | `calculateArcLength(10, 90)` |
 | `getSliceLengthOnCircle(r, height)` | Calculates chord length at given height | `getSliceLengthOnCircle(10, 5)` |
+
+### Structure Functions
+
+#### Array Operations
+| Function | Description | Example |
+|----------|-------------|---------|
+| `createArrayFromLength(length)` | Creates array of numbers from 0 to length-1 | `createArrayFromLength(3) // [0,1,2]` |
+| `insertInArray(array, element, index)` | Inserts element at specified index | `insertInArray([1,2], 3, 1) // [1,3,2]` |
+| `moveInArray(array, from, to)` | Moves element from one index to another | `moveInArray([1,2,3], 0, 2) // [2,3,1]` |
+
+#### Object Operations
+| Function | Description | Example |
+|----------|-------------|---------|
+| `getObjectKeys(obj)` | Gets typed keys of an object | `getObjectKeys({a:1, b:2}) // ['a','b']` |
 
 ## Contributing
 
