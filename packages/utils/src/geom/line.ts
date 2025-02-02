@@ -1,5 +1,6 @@
 import { Simple2D, Simple2DLine, Simple2DAndTuple } from "../types";
 import { lerp } from "../math";
+import { createSimple2D } from "./point";
 
 /**
  * Checks if two line segments intersect, including collinear overlapping segments.
