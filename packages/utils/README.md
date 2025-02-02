@@ -96,6 +96,17 @@ normalizedGaussian(0.5, 1); // returns ~0.135 (smooth falloff)
 normalizedGaussian(1, 1);   // returns ~0.0 (minimal effect)
 ```
 
+## Modules
+
+### Math
+Contains mathematical utility functions for common operations like clamping, interpolation, and normalization.
+
+### Geometry
+Contains geometric calculations and utilities.
+
+#### Circle Functions
+- `getSliceLengthOnCircle(r: number, height: number): number` - Calculates the length of a horizontal slice (chord) on a circle at a given height from the edge. Useful for calculating circle widths at different heights.
+
 ## API Reference
 
 ### Math
