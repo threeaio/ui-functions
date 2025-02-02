@@ -1,11 +1,15 @@
 /**
- * maps a normalized value within a specified range [min, max] to a constrained value between 0 and 1.
+ * Remaps a value within [0,1] to a new subrange in [0,1].
  * @param min Minimum boundary of the range (must be between 0 and 1).
  * @param max Maximum boundary of the range (must be between 0 and 1).
- * @param value The input value (between 0 and 1) to normalize within the new range.
- * @returns A normalized value between 0 and 1.
+ * @param value The input value (between 0 and 1) to remap within the new range.
+ * @returns A remapped value between 0 and 1.
+ * 
+ * @example
+ * remapUnit(0.2, 0.8, 0.5) // returns 0.5
+ * remapUnit(0, 0.5, 0.25)  // returns 0.5
  */
-export const mapToNewUnitRange = (
+export const remapUnit = (
   min: number,
   max: number,
   value: number,

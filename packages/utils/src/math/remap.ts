@@ -11,10 +11,10 @@ import { lerp } from './lerp';
  * @param num Value to remap.
  * @returns The remapped value.
  * @example
- * reMap(0, 100, 0, 1, 50) // returns 0.5
- * reMap(0, 100, -100, 100, 75) // returns 50
+ * remap(0, 100, 0, 1, 50) // returns 0.5
+ * remap(0, 100, -100, 100, 75) // returns 50
  */
-export const reMap = (
+export const remap = (
   origMin: number,
   origMax: number,
   targetMin: number,
