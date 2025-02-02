@@ -161,30 +161,56 @@ All easing functions take a progress value between 0 and 1 and return an eased v
 #### Waveform Functions
 All waveform functions take an input value (typically time) and return a value between 0 and 1. They are useful for creating periodic animations and oscillations.
 
-| Function | Description | Parameters |
-|----------|-------------|------------|
-| `sine(x)` | Smooth sinusoidal oscillation | - |
-| `triangle(x)` | Linear triangular wave pattern | - |
-| `sawtooth(x)` | Linear increasing pattern that resets | - |
-| `square(x, dutyCycle?)` | Alternates between 0 and 1 | `dutyCycle`: Percentage of "on" time (0-1, default: 0.5) |
-| `bounce(x, bounces?)` | Bouncing ball effect | `bounces`: Number of bounces (default: 3) |
-| `pulse(x, width?)` | Smooth pulse wave | `width`: Width of pulse (0-1, default: 0.5) |
-| `elastic(x, amplitude?, frequency?)` | Spring-like oscillation | `amplitude`: Bounce height (default: 1)`frequency`: Bounce frequency (default: 3) |
-| `noise(x, seed?)` | Pseudo-random variation | `seed`: Random seed value (default: 1) |
-| `stepped(x, steps?)` | Quantized step pattern | `steps`: Number of discrete steps (default: 4) |
-| `circular(x)` | Circular easing pattern | - |
-| `exponential(x, base?)` | Exponential growth pattern | `base`: Growth rate (default: 2) |
+##### Basic Waveforms
+| Function | Description |
+|----------|-------------|
+| `sine(x)` | Smooth sinusoidal oscillation |
+| `triangle(x)` | Linear triangular wave pattern |
+| `sawtooth(x)` | Linear increasing pattern that resets |
+| `circular(x)` | Circular easing pattern |
 
+##### Parameterized Waveforms and their Curried Versions
+Each parameterized waveform has two versions:
+1. Standard version with all parameters
+2. Curried version (`*With`) that accepts parameters first and returns a function that only needs the x value
+
+| Standard Version | Curried Version | Description | Parameters |
+|-----------------|-----------------|-------------|------------|
+| `square(x, dutyCycle?)` | `squareWith(dutyCycle)` | Alternates between 0 and 1 | `dutyCycle`: Percentage of "on" time (0-1, default: 0.5) |
+| `bounce(x, bounces?)` | `bounceWith(bounces)` | Bouncing ball effect | `bounces`: Number of bounces (default: 3) |
+| `pulse(x, width?)` | `pulseWith(width)` | Smooth pulse wave | `width`: Width of pulse (0-1, default: 0.5) |
+| `elastic(x, amplitude?, frequency?)` | `elasticWith(amplitude, frequency)` | Spring-like oscillation | `amplitude`: Bounce height (default: 1)`frequency`: Bounce frequency (default: 3) |
+| `noise(x, seed?)` | `noiseWith(seed)` | Pseudo-random variation | `seed`: Random seed value (default: 1) |
+| `stepped(x, steps?)` | `steppedWith(steps)` | Quantized step pattern | `steps`: Number of discrete steps (default: 4) |
+| `exponential(x, base?)` | `exponentialWith(base)` | Exponential growth pattern | `base`: Growth rate (default: 2) |
+
+##### Usage Examples
 ```typescript
-// Example usage of waveforms
-import { sine, bounce } from '@threeaio/utils/animation/waveforms';
+// Standard usage with all parameters
+const value1 = elastic(time, 1.5, 4);
 
-// Smooth oscillation
-const value1 = sine(time); // Returns value between 0 and 1
+// Curried usage - configure once, use many times
+const bouncy = elasticWith(1.5, 4);
+const value2 = bouncy(time);
 
-// Bouncing effect
-const value2 = bounce(time, 5); // 5 bounces
+// Useful when you need consistent function signatures
+const waveforms = [
+  sine,           // Already single-parameter
+  bounceWith(3),  // Configured for 3 bounces
+  pulseWith(0.3)  // Configured for 30% width
+];
+
+// Now all functions have the same signature (x: number) => number
+waveforms.forEach(fn => {
+  const value = fn(time);
+  // ... use value ...
+});
 ```
+
+The curried versions are particularly useful when:
+- You need to configure a waveform once and reuse it multiple times
+- You need functions with consistent signatures (only taking x parameter)
+- You're working with function composition or arrays of waveform functions
 
 ## Contributing
 

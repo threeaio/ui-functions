@@ -108,4 +108,29 @@ export const exponential = (x: number, base = 2): number => {
   const normalized = x % 1;
   if (normalized === 0 && x !== 0) return 1;
   return (Math.pow(base, normalized) - 1) / (base - 1);
-}; 
+};
+
+/**
+ * Curried versions of parameterized waveform functions.
+ * These allow for consistent function signatures when using the waveforms.
+ */
+export const squareWith = (dutyCycle = 0.5) => 
+  (x: number): number => square(x, dutyCycle);
+
+export const bounceWith = (bounces = 3) => 
+  (x: number): number => bounce(x, bounces);
+
+export const pulseWith = (width = 0.5) => 
+  (x: number): number => pulse(x, width);
+
+export const elasticWith = (amplitude = 1, frequency = 3) => 
+  (x: number): number => elastic(x, amplitude, frequency);
+
+export const noiseWith = (seed = 1) => 
+  (x: number): number => noise(x, seed);
+
+export const steppedWith = (steps = 4) => 
+  (x: number): number => stepped(x, steps);
+
+export const exponentialWith = (base = 2) => 
+  (x: number): number => exponential(x, base); 
