@@ -1,0 +1,7 @@
+---
+description: Generating tests
+globs: 
+---
+- Tests should be in packages/{packageName}/__tests__/{folderName}/
+- Each file has its own test-file {fileName}.test.ts
+- Test filename pattern: {functionName}.test.ts

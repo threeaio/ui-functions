@@ -1,0 +1,8 @@
+---
+description: Project Context
+globs: 
+---
+# About this project
+
+- This is a project to bundle frequently used functions in a monorepo with lerna and pnpm.
+- The libs in /packages should be published via npm
