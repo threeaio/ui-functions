@@ -1,6 +1,6 @@
 {
   "name": "@threeaio/utils",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "> TODO: description",
   "author": "Nikolaj Sokolowski",
   "homepage": "https://github.com/threeaio/ui-functions#readme",
@@ -31,5 +31,5 @@
     "jest": "^29.7.0",
     "ts-jest": "^29.1.2"
   },
-  "gitHead": "6f6a92c2369517f0ef65b80acbda18940a9810ef"
+  "gitHead": "99035953efe2211a67e5418729079cebe34bfcf9"
 }
