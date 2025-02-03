@@ -133,4 +133,94 @@ export const steppedWith = (steps = 4) =>
   (x: number): number => stepped(x, steps);
 
 export const exponentialWith = (base = 2) => 
-  (x: number): number => exponential(x, base); 
+  (x: number): number => exponential(x, base);
+
+/**
+ * Type representing all available waveform functions
+ */
+export type WaveformType = 
+  | 'sine'
+  | 'triangle'
+  | 'sawtooth'
+  | 'square'
+  | 'bounce'
+  | 'pulse'
+  | 'elastic'
+  | 'noise'
+  | 'stepped'
+  | 'circular'
+  | 'exponential';
+
+/**
+ * Interface representing a waveform function
+ * @param x - Input value (typically between 0 and 1)
+ * @returns A transformed value between 0 and 1
+ */
+export interface WaveformFunction {
+  (x: number): number;
+}
+
+/**
+ * Type for waveform parameters
+ */
+export type WaveformParams = {
+  square: { dutyCycle?: number };
+  bounce: { bounces?: number };
+  pulse: { width?: number };
+  elastic: { amplitude?: number; frequency?: number };
+  noise: { seed?: number };
+  stepped: { steps?: number };
+  exponential: { base?: number };
+  sine: never;
+  triangle: never;
+  sawtooth: never;
+  circular: never;
+};
+
+/**
+ * Creates a waveform function with optional parameters
+ * @param waveform - The type of waveform to create
+ * @param params - Optional parameters for configurable waveforms
+ * @returns A waveform function that takes a number and returns a number
+ * @example
+ * ```typescript
+ * // Basic waveform without params
+ * const sineWave = waveFormFactory('sine');
+ * 
+ * // Configurable waveform with params
+ * const customSquare = waveFormFactory('square', { dutyCycle: 0.7 });
+ * ```
+ */
+export function waveFormFactory<T extends WaveformType>(
+  waveform: T,
+  params?: WaveformParams[T]
+): WaveformFunction {
+  switch (waveform) {
+    case 'square':
+      return squareWith((params as WaveformParams['square'])?.dutyCycle ?? 0.5);
+    case 'bounce':
+      return bounceWith((params as WaveformParams['bounce'])?.bounces ?? 3);
+    case 'pulse':
+      return pulseWith((params as WaveformParams['pulse'])?.width ?? 0.5);
+    case 'elastic': {
+      const p = params as WaveformParams['elastic'];
+      return elasticWith(p?.amplitude ?? 1, p?.frequency ?? 3);
+    }
+    case 'noise':
+      return noiseWith((params as WaveformParams['noise'])?.seed ?? 1);
+    case 'stepped':
+      return steppedWith((params as WaveformParams['stepped'])?.steps ?? 4);
+    case 'exponential':
+      return exponentialWith((params as WaveformParams['exponential'])?.base ?? 2);
+    case 'sine':
+      return sine;
+    case 'triangle':
+      return triangle;
+    case 'sawtooth':
+      return sawtooth;
+    case 'circular':
+      return circular;
+    default:
+      throw new Error(`Invalid waveform: ${waveform}`);
+  }
+}
