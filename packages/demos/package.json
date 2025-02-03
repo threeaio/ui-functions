@@ -1,6 +1,6 @@
 {
   "name": "@threeaio/demos",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "description": "Demo pages for @threeaio libraries",
   "keywords": [
     "demos",
@@ -42,10 +42,10 @@
     "access": "public"
   },
   "devDependencies": {
-    "cross-env": "^7.0.3",
-    "copyfiles": "^2.4.1",
+    "@types/live-server": "^1.2.1",
     "concurrently": "^8.2.0",
-    "live-server": "^1.2.2",
-    "@types/live-server": "^1.2.1"
+    "copyfiles": "^2.4.1",
+    "cross-env": "^7.0.3",
+    "live-server": "^1.2.2"
   }
 }
