@@ -185,13 +185,13 @@ export type WaveformParams = {
  * @example
  * ```typescript
  * // Basic waveform without params
- * const sineWave = waveFormFactory('sine');
+ * const sineWave = waveformFactory('sine');
  * 
  * // Configurable waveform with params
- * const customSquare = waveFormFactory('square', { dutyCycle: 0.7 });
+ * const customSquare = waveformFactory('square', { dutyCycle: 0.7 });
  * ```
  */
-export function waveFormFactory<T extends WaveformType>(
+export function waveformFactory<T extends WaveformType>(
   waveform: T,
   params?: WaveformParams[T]
 ): WaveformFunction {
