@@ -1,0 +1,8 @@
+---
+description: General instructions - Check ever time
+globs: 
+---
+
+# When we add or update a function
+- Check if the tests packages/oscillator/__tests__ in  are still up to date and update if needed
+- Check if the packages/oscillator/[README.md](mdc:packages/utils/README.md) for a library is still up to date and update if needed

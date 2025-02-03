@@ -1,8 +1,0 @@
----
-description: How functions are written
-globs: 
----
-- Every function should have JSDoc comments
--- Include @param descriptions
--- include @returns description
--- Document any special behavior

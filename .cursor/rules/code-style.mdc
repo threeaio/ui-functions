@@ -1,5 +1,15 @@
 ---
-description: Code-Style
-globs: 
+description: Code-Style - Check ever time
+globs: *ts
 ---
+# Code-Style
+
+## General
 - Use daherize for file and folder names
+- use comprehensive typescript
+
+## Functions
+- Every function should have JSDoc comments
+-- Include @param descriptions
+-- include @returns description
+-- Document any special behavior
