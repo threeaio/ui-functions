@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@threeaio Demos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: 'rgb(41, 221, 140)',
+                        dark: '#0A0A0A',
+                        'dark-light': '#1A1A1A'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="min-h-screen bg-dark text-gray-200">
+    <div class="max-w-4xl mx-auto pb-8 px-8">
+        <h1 class="text-xl py-12">@threeaio Demos</h1>
+        
+        <div class="rounded-lg border p-8 border-gray-800 space-y-8">
+            <!-- Introduction -->
+            <div class="space-y-4">
+                <p class="text-gray-300">
+                    Welcome to the @threeaio demo collection. These demos showcase various utility modules designed for creative coding, animation, and my usual daily business.
+                </p>
+            </div>
+
+            <!-- Available Demos -->
+            <div class="space-y-4">
+                <h2 class="text-lg font-medium">Available Demos</h2>
+                
+                <div class="border border-gray-800 rounded p-6 space-y-4">
+                    <h3 class="text-primary font-medium">Oscillator</h3>
+                    <p class="text-gray-400">
+                        A super-simple oscillator module that generates values based on time, BPM (beats per minute), and customizable waveform functions.
+                    </p>
+                    <div class="space-x-4">
+                        <a href="oscillator.html" 
+                           class="inline-block px-4 py-2 bg-dark rounded border border-gray-800 hover:border-primary transition-colors">
+                            View Demo
+                        </a>
+                        <a href="https://github.com/threeaio/ui-functions/tree/main/packages/oscillator" 
+                           target="_blank"
+                           class="inline-block px-4 py-2 bg-dark rounded border border-gray-800 hover:border-primary transition-colors">
+                            View on GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features -->
+            <div class="space-y-4">
+                <h2 class="text-lg font-medium">Features</h2>
+                <ul class="list-disc list-inside space-y-2 text-gray-300">
+                    <li>Time-based oscillation with BPM synchronization</li>
+                    <li>Support for custom waveform functions</li>
+                    <li>Configurable phase shift and time offset</li>
+                    <li>TypeScript support</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
