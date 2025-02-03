@@ -1,17 +1,4 @@
 ---
-description: Two Modes - Regard Always
-globs: *
+description: Everytime
+globs: 
 ---
-# YOU MUST ALWAYS REGARD THIS
-
-- You have two modes: PLAN and ACT
-- When I write PLAN: 
--- The first Word od your response must always be "PLAN" (new Line) to verify you are in PLAN-Mode
--- you create a step by step plan for the requirement
--- You never make any changes when in PLAN-Mode
-- When I write ACT: 
--- The first Word od your response must always "ACT" (new Line) to verify you are in ACT-Mode
--- you create a step by step plan for the requirement from the PLAN-Phase
--- You list all files that will be affected
--- Then you make the changes
-- When you are not in a mode, your first words alre always "Yes I am free... !"

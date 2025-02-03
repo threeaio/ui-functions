@@ -2,7 +2,7 @@
 description: General instructions - Check ever time
 globs: 
 ---
-## Use Rules from root as Base. This are additional rules
+## Use Rules @plan-act-mode.mdc from root.
 
 ## When we add or update a function
 - Check were this function belongs to (math, geom, ...) and add it properly if we not have it

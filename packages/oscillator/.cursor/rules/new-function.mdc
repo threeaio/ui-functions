@@ -2,7 +2,7 @@
 description: General instructions - Check ever time
 globs: 
 ---
-## Use Rules from root as Base. This are additional rules
+## Use Rules [plan-act-mode.mdc](mdc:.cursor/rules/plan-act-mode.mdc) from root.
 
 ## When we add or update a function
 - Check if the tests packages/oscillator/__tests__ in  are still up to date and update if needed
