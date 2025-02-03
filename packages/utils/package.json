@@ -50,6 +50,11 @@
       "types": "./dist/types/index.d.ts",
       "import": "./dist/types/index.js",
       "require": "./dist/types/index.cjs"
+    },
+    "./animation": {
+      "types": "./dist/animation/index.d.ts",
+      "import": "./dist/animation/index.js",
+      "require": "./dist/animation/index.cjs"
     }
   },
   "typesVersions": {
@@ -62,6 +67,9 @@
       ],
       "types": [
         "./dist/types/index.d.ts"
+      ],
+      "animation": [
+        "./dist/animation/index.d.ts"
       ]
     }
   },
