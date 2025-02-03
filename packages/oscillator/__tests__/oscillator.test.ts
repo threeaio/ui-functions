@@ -1,5 +1,5 @@
 import { oscillator, type OscillatorConfig } from '../src';
-import { waveformFactory } from '@threeaio/utils/animation';
+import { waveformFactory } from '../../utils/src/animation';
 
 describe('oscillator', () => {
     const sineWave = waveformFactory('sine');
