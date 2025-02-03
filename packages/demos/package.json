@@ -30,9 +30,9 @@
     "dev": "concurrently \"pnpm run watch\" \"pnpm run serve\"",
     "watch": "cross-env WATCH=true tsup",
     "serve": "live-server public --port=3000 --no-browser --watch=./public",
-    "build": "tsup",
+    "build": "tsup && pnpm run copy-public",
     "clean": "rimraf dist public/js",
-    "copy-public": "copyfiles -u 1 \"public/**/*\" dist",
+    "copy-public": "rm -rf ../../public-demo && mkdir ../../public-demo && cp -rp public/.  ../../public-demo ",
     "prepublishOnly": "pnpm run clean && pnpm run build"
   },
   "bugs": {
