@@ -115,7 +115,11 @@ function initOscillatorDemo() {
 
         config.currentTimeMs += deltaTime;
         const value = oscillator(config);
-        renderer.update(value);
+        const referenceValue = oscillator({
+            ...config,
+            waveformfun: waveformFactory('sawtooth')
+        });
+        renderer.update(value, referenceValue);
 
         requestAnimationFrame(animate);
     }
