@@ -7,7 +7,7 @@
     "oscillator",
     "typescript"
   ],
-  "author": "Nikolaj Sokolowski <n.sokolowski@neusta.de>",
+  "author": "Nikolaj Sokolowski <nikolaj@threea.io>",
   "homepage": "https://github.com/threeaio/ui-functions#readme",
   "license": "ISC",
   "main": "dist/index.js",

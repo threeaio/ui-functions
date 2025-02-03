@@ -5,5 +5,6 @@ export * from './types';
 export * from './math';
 export * from './geom';
 export * from './animation';
+export * from './structures';
 
 
