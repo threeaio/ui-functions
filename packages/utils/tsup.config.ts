@@ -8,9 +8,10 @@ export default defineConfig({
     'animation/index': 'src/animation/index.ts',
     'types/index': 'src/types/index.ts',
   },
-  format: ['esm', 'cjs'],
+  format: ['cjs', 'esm'],
   dts: true,
   clean: true,
+  sourcemap: true,
   splitting: false,
-  treeshake: true,
+  treeshake: true
 }); 

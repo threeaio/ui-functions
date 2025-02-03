@@ -1,7 +1,7 @@
 {
   "name": "@threeaio/utils",
   "version": "0.7.0",
-  "description": "> TODO: description",
+  "description": "A collection of utility functions and types commonly used by me",
   "author": "Nikolaj Sokolowski",
   "homepage": "https://github.com/threeaio/ui-functions#readme",
   "license": "ISC",
