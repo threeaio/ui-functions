@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utils Demo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="dist/index.js"></script>
+</head>
+<body class="min-h-screen bg-gray-100 p-8">
+    <div class="max-w-2xl mx-auto">
+        <h1 class="text-3xl font-bold mb-8">Utils Demo</h1>
+        
+        <div class="bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-xl font-semibold mb-4">Clamp Function Demo</h2>
+            <div class="w-full bg-gray-200 rounded-full h-4">
+                <div id="utils-output" 
+                     class="bg-green-600 h-4 rounded-full transition-all duration-75">
+                </div>
+            </div>
+            <p class="mt-4 text-gray-600">
+                This demo shows the clamp function in action.
+                The progress bar increases by 5% every 100ms, clamped between 0% and 100%.
+            </p>
+        </div>
+    </div>
+</body>
+</html> 

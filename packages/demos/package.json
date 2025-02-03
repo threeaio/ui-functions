@@ -1,0 +1,55 @@
+{
+  "name": "@threeaio/demos",
+  "version": "0.8.0",
+  "description": "Demo pages for @threeaio libraries",
+  "keywords": [
+    "demos",
+    "typescript"
+  ],
+  "author": "Nikolaj Sokolowski <nikolaj@threea.io>",
+  "homepage": "https://github.com/threeaio/ui-functions#readme",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "public",
+    "README.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/threeaio/ui-functions.git"
+  },
+  "dependencies": {
+    "@threeaio/oscillator": "workspace:*",
+    "@threeaio/utils": "workspace:*"
+  },
+  "scripts": {
+    "dev": "concurrently \"pnpm run watch\" \"pnpm run serve\"",
+    "watch": "cross-env WATCH=true tsup",
+    "serve": "live-server public --port=3000 --no-browser --watch=./public",
+    "build": "tsup",
+    "clean": "rimraf dist public/js",
+    "copy-public": "copyfiles -u 1 \"public/**/*\" dist",
+    "prepublishOnly": "pnpm run clean && pnpm run build"
+  },
+  "bugs": {
+    "url": "https://github.com/threeaio/ui-functions/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "jest": "^29.0.0",
+    "ts-jest": "^29.0.0",
+    "@types/jest": "^29.0.0",
+    "cross-env": "^7.0.3",
+    "copyfiles": "^2.4.1",
+    "concurrently": "^8.2.0",
+    "live-server": "^1.2.2",
+    "@types/live-server": "^1.2.1"
+  }
+}
