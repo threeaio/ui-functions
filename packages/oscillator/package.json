@@ -1,0 +1,44 @@
+{
+  "name": "@threeaio/oscillator",
+  "version": "0.7.0",
+  "description": "A super simple typescript Oscillator",
+  "keywords": [
+    "animation",
+    "oscillator",
+    "typescript"
+  ],
+  "author": "Nikolaj Sokolowski <n.sokolowski@neusta.de>",
+  "homepage": "https://github.com/threeaio/ui-functions#readme",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/threeaio/ui-functions.git"
+  },
+  "scripts": {
+    "test": "jest",
+    "build": "tsup",
+    "clean": "rimraf dist",
+    "prepublishOnly": "pnpm run clean && pnpm run build"
+  },
+  "bugs": {
+    "url": "https://github.com/threeaio/ui-functions/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  }
+}
