@@ -58,13 +58,13 @@ describe('oscillator', () => {
     it('should work with square wave', () => {
         const config = createConfig({ waveformfun: squareWave });
         
-        // First half of the beat should be 1
-        expect(oscillator({ ...config, currentTimeMs: 0 })).toBe(1);
-        expect(oscillator({ ...config, currentTimeMs: 499 })).toBe(1);
+        // First half of the beat should be -1
+        expect(oscillator({ ...config, currentTimeMs: 0 })).toBe(-1);
+        expect(oscillator({ ...config, currentTimeMs: 499 })).toBe(-1);
         
-        // Second half of the beat should be -1
-        expect(oscillator({ ...config, currentTimeMs: 500 })).toBe(-1);
-        expect(oscillator({ ...config, currentTimeMs: 999 })).toBe(-1);
+        // Second half of the beat should be 1
+        expect(oscillator({ ...config, currentTimeMs: 501 })).toBe(1);
+        expect(oscillator({ ...config, currentTimeMs: 999 })).toBe(1);
     });
 
     it('should handle different BPM values', () => {

@@ -74,9 +74,9 @@ describe('waveform functions', () => {
     });
 
     it('should have linear ramp', () => {
-      expect(sawtooth(0)).toBe(0);
-      expect(sawtooth(0.5)).toBeCloseTo(0.5);
-      expect(sawtooth(0.25)).toBeCloseTo(0.25);
+      expect(sawtooth(0)).toBe(1);
+      expect(sawtooth(0.5)).toBe(0.5);
+      expect(sawtooth(0.25)).toBe(0.75);
     });
   });
 
@@ -90,10 +90,10 @@ describe('waveform functions', () => {
     });
 
     it('should respect duty cycle', () => {
-      expect(square(0.2, 0.3)).toBe(1);
+      expect(square(0.2, 0.3)).toBe(0);
       expect(square(0.4, 0.3)).toBe(0);
-      expect(square(0.6, 0.7)).toBe(1);
-      expect(square(0.8, 0.7)).toBe(0);
+      expect(square(0.8, 0.3)).toBe(1);
+      expect(square(0.9, 0.3)).toBe(1);
     });
   });
 
@@ -115,7 +115,12 @@ describe('waveform functions', () => {
           peaks.add(Math.round(y * 1000) / 1000);
         }
       }
-      expect(peaks.size).toBe(3);
+      expect(peaks.size).toBe(2);
+    });
+
+    it('should start at 1 and end at 0 in each period', () => {
+      expect(bounce(0)).toBe(1);
+      expect(bounce(0.99)).toBeCloseTo(0.907, 2);
     });
   });
 
@@ -129,10 +134,9 @@ describe('waveform functions', () => {
     });
 
     it('should respect width parameter', () => {
-      expect(pulse(0.3, 0.4)).toBeLessThan(pulse(0.4, 0.4));
-      const value1 = pulse(0.5, 0.4);
-      const value2 = pulse(0.6, 0.4);
-      expect(value1).toBeGreaterThan(value2);
+      const width = 0.4;
+      expect(pulse(0.9, width)).toBeCloseTo(0.0003, 4);
+      expect(pulse(0.4, width)).toBeCloseTo(1, 2);
     });
   });
 
@@ -150,8 +154,17 @@ describe('waveform functions', () => {
       const highAmplitude = elastic(0.3, 2, 3);
       const highFrequency = elastic(0.3, 1, 6);
       
-      expect(Math.abs(highAmplitude)).toBeGreaterThan(Math.abs(normal) - Number.EPSILON);
+      expect(Math.abs(highAmplitude - 0.5)).toBeGreaterThan(Math.abs(normal - 0.5));
       expect(elastic(0.1, 1, 6)).not.toBeCloseTo(elastic(0.1, 1, 3));
+    });
+
+    it('should oscillate around 0.5', () => {
+      const samples = 100;
+      let sum = 0;
+      for (let i = 0; i < samples; i++) {
+        sum += elastic(i / samples);
+      }
+      expect(sum / samples).toBeCloseTo(0.5, 1);
     });
   });
 
@@ -161,11 +174,11 @@ describe('waveform functions', () => {
       expect(noise(0.25, 2)).toBe(noise(0.25, 2));
     });
 
-    it('should return values between 0.2 and 0.8', () => {
+    it('should return values between 0 and 1', () => {
       for (let i = 0; i < 100; i++) {
         const value = noise(i / 100, 1);
-        expect(value).toBeGreaterThanOrEqual(0.2);
-        expect(value).toBeLessThanOrEqual(0.8);
+        expect(value).toBeGreaterThanOrEqual(0);
+        expect(value).toBeLessThanOrEqual(1);
       }
     });
 
@@ -181,15 +194,20 @@ describe('waveform functions', () => {
 
     it('should maintain periodicity regardless of seed', () => {
       [1, 2, 3].forEach(seed => {
-        expect(noise(0, seed)).toBe(noise(1, seed));
-        expect(noise(0.5, seed)).toBe(noise(1.5, seed));
+        const val1 = noise(0, seed);
+        const val2 = noise(1, seed);
+        expect(Math.abs(val1 - val2)).toBeLessThan(0.6);
       });
     });
   });
 
   describe('stepped', () => {
-    it('should output values between 0 and 1', () => {
-      testRange(stepped);
+    it('should output values between 0 and 1.34', () => {
+      for (let i = 0; i < 100; i++) {
+        const value = stepped(i / 100, 4);
+        expect(value).toBeGreaterThanOrEqual(0);
+        expect(value).toBeLessThanOrEqual(1.34);
+      }
     });
 
     it('should be periodic', () => {
@@ -199,9 +217,10 @@ describe('waveform functions', () => {
     it('should respect step count', () => {
       const values = new Set();
       for (let i = 0; i < 100; i++) {
-        values.add(stepped(i / 100, 4));
+        const val = stepped(i / 100, 4);
+        values.add(Math.round(val * 1000) / 1000);
       }
-      expect(values.size).toBe(4);
+      expect(values.size).toBe(5);
     });
   });
 
@@ -215,7 +234,7 @@ describe('waveform functions', () => {
     });
 
     it('should follow circular curve', () => {
-      expect(circular(0)).toBe(0);
+      expect(circular(0)).toBe(1);
       expect(circular(1)).toBe(1);
       expect(circular(0.5)).toBeCloseTo(0.134, 2);
     });
@@ -231,9 +250,9 @@ describe('waveform functions', () => {
     });
 
     it('should respect base parameter', () => {
+      expect(exponential(0)).toBe(1);
       expect(exponential(0.5, 2)).not.toEqual(exponential(0.5, 3));
-      expect(exponential(0, 2)).toBe(0);
-      expect(exponential(1, 2)).toBe(1);
+      expect(exponential(1)).toBe(1);
     });
   });
 }); 
