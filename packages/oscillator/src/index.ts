@@ -1,4 +1,5 @@
 import { type WaveformFunction } from '@threeaio/utils/animation';
+import { remap } from '@threeaio/utils/math';
 
 export interface OscillatorConfig {
     currentTimeMs: number;
@@ -14,7 +15,7 @@ export interface OscillatorConfig {
  * @param config - Configuration object for the oscillator
  * @param config.currentTimeMs - Current time in milliseconds
  * @param config.bpm - Beats per minute
- * @param config.waveformfun - Function that generates the waveform value
+ * @param config.waveformfun - Function that generates the waveform value in range [0,1]
  * @param config.offsetMs - Time offset in milliseconds (default: 0)
  * @param config.phaseShift - Phase shift in radians (default: 0)
  * @returns A value between -1 and 1 based on the waveform function
@@ -32,5 +33,7 @@ export const oscillator = (config: OscillatorConfig): number => {
     const normalizedPosition = ((currentTimeMs + offsetMs) % millisecondsPerBeat) / millisecondsPerBeat;
     const positionWithPhase = (normalizedPosition + phaseShift / (Math.PI * 2)) % 1;
 
-    return waveformfun(positionWithPhase);
+    // Get waveform value in [0,1] range and remap to [-1,1]
+    const waveformValue = waveformfun(positionWithPhase);
+    return remap(0, 1, -1, 1, waveformValue);
 };
