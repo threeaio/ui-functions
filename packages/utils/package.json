@@ -1,6 +1,6 @@
 {
   "name": "@threeaio/utils",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "description": "A collection of utility functions and types commonly used by me",
   "author": "Nikolaj Sokolowski <nikolaj@threea.io>",
   "homepage": "https://github.com/threeaio/ui-functions#readme",
