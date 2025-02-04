@@ -1,7 +1,7 @@
 {
   "name": "@threeaio/react-ui-example",
   "private": true,
-  "version": "0.10.0",
+  "version": "0.10.1",
   "description": "Example application for @threeaio/react-ui components",
   "keywords": [
     "React",
