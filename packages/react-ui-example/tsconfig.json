@@ -13,7 +13,6 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "paths": {
-      "@threeaio/react-ui": ["../react-ui/src"]
     },
     "rootDir": "./src"
   },

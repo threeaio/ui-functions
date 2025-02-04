@@ -11,7 +11,7 @@
   "author": "Nikolaj Sokolowski <n.sokolowski@neusta.de>",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "MONOREPO=true vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
     "clean": "rimraf dist"
