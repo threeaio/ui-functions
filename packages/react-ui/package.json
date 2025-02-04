@@ -27,9 +27,9 @@
   "scripts": {
     "test": "jest",
     "build": "tsup",
+    "watch": "tsup --watch",
     "clean": "rimraf dist",
-    "prepublishOnly": "pnpm run clean && pnpm run build",
-    "dev": "pnpm --filter ./example dev"
+    "prepublishOnly": "pnpm run clean && pnpm run build"
   },
   "peerDependencies": {
     "react": "^18.0.0 || ^19.0.0",
