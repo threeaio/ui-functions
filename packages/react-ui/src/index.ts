@@ -1,2 +1,2 @@
 // Export your components here
-export {}; 
+export { Button, buttonVariants } from './components/ui/button'; 

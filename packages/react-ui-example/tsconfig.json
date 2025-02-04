@@ -18,5 +18,4 @@
     "rootDir": "./src"
   },
   "include": ["src"],
-  "references": [{ "path": "../react-ui/tsconfig.json" }]
 } 
