@@ -7,7 +7,8 @@ import { defineConfig } from 'tsup';
 export default defineConfig({
   entry: {
     index: 'src/index.ts',
-    'styles': 'src/styles/globals.css'
+    'styles': 'src/styles/globals.css',
+    'tailwind-preset': 'tailwind.config.js'
   },
   format: ['cjs', 'esm'],
   dts: true,

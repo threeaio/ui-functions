@@ -69,6 +69,7 @@
       "import": "./dist/styles.css",
       "require": "./dist/styles.css"
     },
-    "./styles.css": "./dist/styles.css"
+    "./styles.css": "./dist/styles.css",
+    "./tailwind-preset": "./dist/tailwind-preset.js"
   }
 }

@@ -6,6 +6,6 @@ export default {
     "../react-ui/src/**/*.{js,ts,jsx,tsx}",
   ],
   presets: [
-    require("../react-ui/tailwind.config.js")
+    require("@threeaio/react-ui/tailwind-preset")
   ]
 } 
